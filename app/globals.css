@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AURELIO – Design-Tokens (Fine-Dining-Elegant, Variante 1)
+   Quelle: 10RESTAURANTS5VARIANTEN.md
+   ============================================================ */
+@theme {
+  /* Primärflächen */
+  --color-ink: #0b0b0b; /* Tiefes Schwarz */
+  --color-anthracite: #17150f; /* Warm-Anthrazit */
+  /* Akzente */
+  --color-gold: #c2a45c; /* Champagner-Gold */
+  --color-gold-soft: #d8c08a;
+  --color-cream: #efe9dd; /* Gebrochenes Weiß */
+  /* Sekundär */
+  --color-bordeaux: #3e1820; /* Tiefes Bordeaux */
+
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-jost), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Feines Korn/Vignette-Helfer für cinematic Tiefe */
+.cinematic-vignette {
+  background: radial-gradient(
+    120% 90% at 50% 35%,
+    transparent 0%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
