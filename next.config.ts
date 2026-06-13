@@ -19,7 +19,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://images.unsplash.com",
-      "media-src 'self' https://images.unsplash.com https://assets.mixkit.co",
+      "media-src 'self' blob: data:",
       "font-src 'self' data:",
       "connect-src 'self'",
       "frame-ancestors 'none'",

@@ -63,9 +63,9 @@ export function Hero() {
           playsInline
           preload="metadata"
         >
-          {/* Reales Ambient-Video hier ablegen (Plating / Gastraum, gedämpft, langsam).
-              Poster sorgt für vollständiges Bild, falls Video (noch) fehlt. */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-cooking-a-meal-in-a-restaurant-kitchen-44642-large.mp4" type="video/mp4" />
+          {/* Hero-Ambient-Video (Higgsfield). Unsplash-Poster dient als Fallback,
+              bis das Video geladen ist. */}
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
