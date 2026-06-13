@@ -47,8 +47,26 @@ body {
   );
 }
 
+/* Endlos-Marquee (Zutaten-Band) – Track enthält die Liste 2x, -50% = nahtloser Loop */
+@keyframes aurelio-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: aurelio-marquee 45s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
   }
 }

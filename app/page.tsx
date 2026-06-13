@@ -1,12 +1,14 @@
 import { Navbar } from "@/components/hero/Navbar";
 import { Hero } from "@/components/hero/Hero";
+import { Kueche } from "@/components/sections/Kueche";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
-      {/* Weitere Sektionen folgen nach Freigabe (Küche, Menü, Reservierung …) */}
+      <Kueche />
+      {/* Weitere Sektionen folgen nach Freigabe (Menü, Reservierung …) */}
     </main>
   );
 }
