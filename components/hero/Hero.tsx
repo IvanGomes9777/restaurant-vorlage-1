@@ -50,7 +50,7 @@ export function Hero() {
     <section
       ref={ref}
       id="restaurant"
-      className="relative h-[100svh] w-full overflow-hidden bg-[var(--color-ink)]"
+      className="relative isolate h-[100svh] w-full overflow-hidden bg-[var(--color-ink)]"
     >
       {/* === Hintergrund: Cinematic-Video-Layer (mit Parallax) === */}
       <motion.div style={{ y: videoY }} className="absolute inset-0 -z-20 h-[118%]">
