@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/hero/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { Kueche } from "@/components/sections/Kueche";
+import { Menu } from "@/components/sections/Menu";
 
 export default function Home() {
   return (
@@ -8,7 +9,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Kueche />
-      {/* Weitere Sektionen folgen nach Freigabe (Menü, Reservierung …) */}
+      <Menu />
+      {/* Weitere Sektionen folgen nach Freigabe (Reservierung …) */}
     </main>
   );
 }
