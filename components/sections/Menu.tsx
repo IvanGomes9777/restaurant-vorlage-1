@@ -282,8 +282,29 @@ export function Menu() {
   const bookRef = useRef<{ pageFlip: () => { flipNext: () => void; flipPrev: () => void } } | null>(null);
   const [mounted, setMounted] = useState(false);
   const [page, setPage] = useState(0);
+  const [orientation, setOrientation] = useState<"portrait" | "landscape">(
+    "landscape",
+  );
 
   useEffect(() => setMounted(true), []);
+
+  // Orientierung initial via matchMedia (wird von react-pageflip via
+  // onChangeOrientation überschrieben, sobald es feuert).
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const update = () => setOrientation(mq.matches ? "portrait" : "landscape");
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Im Doppelseiten-Modus zeigt eine Ansicht zwei Seiten (linker Index = page),
+  // d. h. der letzte erreichbare Index ist length-2; im Portrait length-1.
+  const atStart = page <= 0;
+  const atEnd =
+    orientation === "portrait"
+      ? page >= PAGES.length - 1
+      : page >= PAGES.length - 2;
 
   const flipNext = () => bookRef.current?.pageFlip()?.flipNext();
   const flipPrev = () => bookRef.current?.pageFlip()?.flipPrev();
@@ -339,6 +360,9 @@ export function Menu() {
               mobileScrollSupport
               className="mx-auto"
               onFlip={(e: { data: number }) => setPage(e.data)}
+              onChangeOrientation={(e: { data: "portrait" | "landscape" }) =>
+                setOrientation(e.data)
+              }
             >
               {PAGES.map((p, i) => (
                 <Leaf key={i} density={p.kind === "cover" ? "hard" : "soft"}>
@@ -354,7 +378,7 @@ export function Menu() {
           <button
             type="button"
             onClick={flipPrev}
-            disabled={page <= 0}
+            disabled={atStart}
             aria-label="Vorherige Seite"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-gold)]/50 text-[var(--color-gold)] transition-all hover:bg-[var(--color-gold)] hover:text-[var(--color-ink)] disabled:cursor-not-allowed disabled:opacity-30"
           >
@@ -366,7 +390,7 @@ export function Menu() {
           <button
             type="button"
             onClick={flipNext}
-            disabled={page >= PAGES.length - 1}
+            disabled={atEnd}
             aria-label="Nächste Seite"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-gold)]/50 text-[var(--color-gold)] transition-all hover:bg-[var(--color-gold)] hover:text-[var(--color-ink)] disabled:cursor-not-allowed disabled:opacity-30"
           >
