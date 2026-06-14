@@ -22,6 +22,7 @@ const securityHeaders = [
       "media-src 'self' blob: data:",
       "font-src 'self' data:",
       "connect-src 'self'",
+      "frame-src https://www.google.com https://maps.google.com",
       "frame-ancestors 'none'",
     ].join("; "),
   },
