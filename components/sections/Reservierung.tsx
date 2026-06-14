@@ -4,19 +4,22 @@ import { useEffect, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 
 /* ============================================================
-   Reservierung – Konzept E (Formular + Info-Panel)
+   Reservierung – Konzept E, Variante Hell-3 (Split hell/dunkel)
+   Helles Creme-Formular + dunkles Info-Panel als Kontrast.
    Frontend-Mock mit Validierung, Honeypot & DSGVO-Consent.
-   Echte Versand-/E-Mail-Logik kann später angebunden werden.
    ============================================================ */
 
 const TIMES = ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"];
 const GUESTS = ["1", "2", "3", "4", "5", "6", "7", "8", "9+ (auf Anfrage)"];
 const OCCASIONS = ["Dinner", "Geschäftsessen", "Geburtstag", "Jahrestag", "Private Dining", "Sonstiges"];
 
+// Helles Formular auf Creme
 const inputClass =
-  "w-full border-b border-[var(--color-cream)]/20 bg-transparent py-2.5 font-body text-sm text-[var(--color-cream)] outline-none transition-colors placeholder:text-[var(--color-cream)]/35 focus:border-[var(--color-gold)]";
+  "w-full border-b border-[#241f18]/20 bg-transparent py-2.5 font-body text-sm text-[#241f18] outline-none transition-colors placeholder:text-[#241f18]/35 focus:border-[#a8842f]";
 const labelClass =
-  "mb-1.5 block font-body text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-cream)]/55";
+  "mb-1.5 block font-body text-[0.65rem] uppercase tracking-[0.2em] text-[#6b6051]";
+const errClass = "mt-1.5 text-xs text-[#b23a2a]";
+const optClass = "bg-white text-[#241f18]";
 
 function todayISO() {
   // Lokales Datum (nicht UTC), damit das Min-Datum in DE nachts korrekt ist.
@@ -74,22 +77,22 @@ export function Reservierung() {
   return (
     <section
       id="reservierung"
-      className="relative isolate overflow-hidden bg-[var(--color-ink)] py-24 sm:py-32"
+      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#f4eddd_0%,#ece2cd_100%)] py-24 sm:py-32"
     >
       <div className="mx-auto max-w-6xl px-6">
         {/* Kopf */}
         <div className="mb-14 text-center">
-          <p className="mb-7 font-body text-[0.7rem] uppercase tracking-[0.5em] text-[var(--color-gold)]">
+          <p className="mb-7 font-body text-[0.7rem] uppercase tracking-[0.5em] text-[#a8842f]">
             — Reservierung —
           </p>
-          <h2 className="font-display text-4xl font-medium text-[var(--color-cream)] sm:text-6xl">
+          <h2 className="font-display text-4xl font-medium text-[#241f18] sm:text-6xl">
             Tisch reservieren
           </h2>
-          <span className="mx-auto mt-9 block h-px w-40 bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent sm:w-56" />
+          <span className="mx-auto mt-9 block h-px w-40 bg-gradient-to-r from-transparent via-[#a8842f] to-transparent sm:w-56" />
         </div>
 
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-          {/* Formular */}
+          {/* Formular (hell) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,20 +104,20 @@ export function Reservierung() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="flex h-full min-h-[420px] flex-col items-center justify-center border border-[var(--color-gold)]/25 px-8 text-center"
+                className="flex h-full min-h-[420px] flex-col items-center justify-center border border-[#a8842f]/30 px-8 text-center"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 14 }}
-                  className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[var(--color-gold)] text-2xl text-[var(--color-gold)]"
+                  className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-[#a8842f] text-2xl text-[#a8842f]"
                 >
                   ✓
                 </motion.div>
-                <h3 className="font-display text-2xl text-[var(--color-cream)]">
+                <h3 className="font-display text-2xl text-[#241f18]">
                   Vielen Dank für Ihre Anfrage
                 </h3>
-                <p className="mt-3 max-w-sm font-serif text-base italic text-[var(--color-cream)]/70">
+                <p className="mt-3 max-w-sm font-serif text-base italic text-[#4a4036]">
                   Wir bestätigen Ihre Reservierung in Kürze per E-Mail oder
                   Telefon. Wir freuen uns auf Ihren Besuch im AURELIO.
                 </p>
@@ -135,23 +138,23 @@ export function Reservierung() {
                   <div>
                     <label htmlFor="r-date" className={labelClass}>Datum</label>
                     <input id="r-date" name="date" type="date" min={todayISO()} className={inputClass} aria-invalid={!!errors.date} aria-describedby={errors.date ? "r-date-err" : undefined} />
-                    {errors.date && <p id="r-date-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.date}</p>}
+                    {errors.date && <p id="r-date-err" className={errClass}>{errors.date}</p>}
                   </div>
                   <div>
                     <label htmlFor="r-time" className={labelClass}>Uhrzeit</label>
                     <select id="r-time" name="time" defaultValue="" className={`${inputClass} appearance-none`} aria-invalid={!!errors.time} aria-describedby={errors.time ? "r-time-err" : undefined}>
-                      <option value="" disabled className="bg-[var(--color-ink)]">Bitte wählen</option>
+                      <option value="" disabled className={optClass}>Bitte wählen</option>
                       {TIMES.map((t) => (
-                        <option key={t} value={t} className="bg-[var(--color-ink)]">{t} Uhr</option>
+                        <option key={t} value={t} className={optClass}>{t} Uhr</option>
                       ))}
                     </select>
-                    {errors.time && <p id="r-time-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.time}</p>}
+                    {errors.time && <p id="r-time-err" className={errClass}>{errors.time}</p>}
                   </div>
                   <div>
                     <label htmlFor="r-guests" className={labelClass}>Personen</label>
                     <select id="r-guests" name="guests" defaultValue="2" className={`${inputClass} appearance-none`}>
                       {GUESTS.map((g) => (
-                        <option key={g} value={g} className="bg-[var(--color-ink)]">{g}</option>
+                        <option key={g} value={g} className={optClass}>{g}</option>
                       ))}
                     </select>
                   </div>
@@ -159,7 +162,7 @@ export function Reservierung() {
                     <label htmlFor="r-occasion" className={labelClass}>Anlass</label>
                     <select id="r-occasion" name="occasion" defaultValue="Dinner" className={`${inputClass} appearance-none`}>
                       {OCCASIONS.map((o) => (
-                        <option key={o} value={o} className="bg-[var(--color-ink)]">{o}</option>
+                        <option key={o} value={o} className={optClass}>{o}</option>
                       ))}
                     </select>
                   </div>
@@ -168,53 +171,53 @@ export function Reservierung() {
                 <div>
                   <label htmlFor="r-name" className={labelClass}>Name</label>
                   <input id="r-name" name="name" type="text" autoComplete="name" placeholder="Ihr vollständiger Name" className={inputClass} aria-invalid={!!errors.name} aria-describedby={errors.name ? "r-name-err" : undefined} />
-                  {errors.name && <p id="r-name-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.name}</p>}
+                  {errors.name && <p id="r-name-err" className={errClass}>{errors.name}</p>}
                 </div>
 
                 <div className="grid gap-7 sm:grid-cols-2">
                   <div>
                     <label htmlFor="r-email" className={labelClass}>E-Mail</label>
                     <input id="r-email" name="email" type="email" autoComplete="email" placeholder="ihre@email.de" className={inputClass} aria-invalid={!!errors.email} aria-describedby={errors.email ? "r-email-err" : undefined} />
-                    {errors.email && <p id="r-email-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.email}</p>}
+                    {errors.email && <p id="r-email-err" className={errClass}>{errors.email}</p>}
                   </div>
                   <div>
                     <label htmlFor="r-phone" className={labelClass}>Telefon</label>
                     <input id="r-phone" name="phone" type="tel" autoComplete="tel" placeholder="+49 …" className={inputClass} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? "r-phone-err" : undefined} />
-                    {errors.phone && <p id="r-phone-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.phone}</p>}
+                    {errors.phone && <p id="r-phone-err" className={errClass}>{errors.phone}</p>}
                   </div>
                 </div>
 
                 <div>
                   <label className="flex cursor-pointer items-start gap-3">
-                    <input type="checkbox" name="consent" className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-gold)]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "r-consent-err" : undefined} />
-                    <span className="font-body text-xs leading-relaxed text-[var(--color-cream)]/60">
+                    <input type="checkbox" name="consent" className="mt-1 h-4 w-4 shrink-0 accent-[#a8842f]" aria-invalid={!!errors.consent} aria-describedby={errors.consent ? "r-consent-err" : undefined} />
+                    <span className="font-body text-xs leading-relaxed text-[#6b6051]">
                       Ich willige ein, dass meine Angaben zur Bearbeitung der
                       Reservierungsanfrage verarbeitet werden. Hinweise &
                       Widerruf in der{" "}
-                      <a href="#datenschutz" className="text-[var(--color-gold)] underline">Datenschutzerklärung</a>.
+                      <a href="#datenschutz" className="text-[#a8842f] underline">Datenschutzerklärung</a>.
                     </span>
                   </label>
-                  {errors.consent && <p id="r-consent-err" className="mt-1.5 text-xs text-[#c98b6b]">{errors.consent}</p>}
+                  {errors.consent && <p id="r-consent-err" className={errClass}>{errors.consent}</p>}
                 </div>
 
                 <button
                   type="submit"
-                  className="group relative inline-flex w-full items-center justify-center overflow-hidden border border-[var(--color-gold)] px-10 py-4 font-body text-xs uppercase tracking-[0.3em] text-[var(--color-gold)] transition-colors duration-500 hover:text-[var(--color-ink)] sm:w-auto"
+                  className="group relative inline-flex w-full items-center justify-center overflow-hidden border border-[#a8842f] px-10 py-4 font-body text-xs uppercase tracking-[0.3em] text-[#a8842f] transition-colors duration-500 hover:text-white sm:w-auto"
                 >
                   <span className="relative z-10">Anfrage senden</span>
-                  <span className="absolute inset-0 origin-bottom scale-y-0 bg-[var(--color-gold)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" />
+                  <span className="absolute inset-0 origin-bottom scale-y-0 bg-[#a8842f] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" />
                 </button>
               </form>
             )}
           </motion.div>
 
-          {/* Info-Panel */}
+          {/* Info-Panel (dunkel – Kontrast) */}
           <motion.aside
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="flex flex-col gap-8 border border-[var(--color-cream)]/10 bg-[var(--color-anthracite)]/60 p-8 sm:p-10"
+            className="flex flex-col gap-8 bg-[var(--color-ink)] p-8 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] sm:p-10"
           >
             {/* Live-Status */}
             <div>
@@ -250,7 +253,7 @@ export function Reservierung() {
               <div className="space-y-2 font-body text-sm text-[var(--color-cream)]/75">
                 <p><a href="tel:+49892001200" className="transition-colors hover:text-[var(--color-gold)]">+49 (0)89 200-1200</a></p>
                 <p><a href="mailto:reservierung@aurelio-restaurant.de" className="transition-colors hover:text-[var(--color-gold)]">reservierung@aurelio-restaurant.de</a></p>
-                <p className="not-italic">Maximilianstraße 12 · 80539 München</p>
+                <p>Maximilianstraße 12 · 80539 München</p>
               </div>
             </div>
 
