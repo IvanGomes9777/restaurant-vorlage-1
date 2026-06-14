@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
+import { CookieConsent } from "@/components/legal/CookieConsent";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -34,7 +35,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }
