@@ -62,10 +62,10 @@ const NAV = [
 ];
 
 const LEGAL = [
-  { label: "Impressum", href: "#" },
-  { label: "Datenschutz", href: "#" },
-  { label: "Allergene & Zusatzstoffe", href: "#" },
-  { label: "Cookies", href: "#" },
+  { label: "Impressum", href: "/impressum" },
+  { label: "Datenschutz", href: "/datenschutz" },
+  { label: "Allergene & Zusatzstoffe", href: "/allergene" },
+  { label: "Cookies", href: "/datenschutz#cookies" },
 ];
 
 const fade = {

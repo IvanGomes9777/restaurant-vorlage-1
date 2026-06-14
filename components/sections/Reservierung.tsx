@@ -194,7 +194,7 @@ export function Reservierung() {
                       Ich willige ein, dass meine Angaben zur Bearbeitung der
                       Reservierungsanfrage verarbeitet werden. Hinweise &
                       Widerruf in der{" "}
-                      <a href="#datenschutz" className="text-[#a8842f] underline">Datenschutzerklärung</a>.
+                      <a href="/datenschutz" className="text-[#a8842f] underline">Datenschutzerklärung</a>.
                     </span>
                   </label>
                   {errors.consent && <p id="r-consent-err" className={errClass}>{errors.consent}</p>}
