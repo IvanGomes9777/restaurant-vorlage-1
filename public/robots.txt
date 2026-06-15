@@ -1,2 +1,25 @@
+# robots.txt – AURELIO
+# SEO-/GEO-Richtlinien 4.2: KI-Such-/Retrieval-Crawler ausdrücklich erlauben,
+# damit das Restaurant in KI-Antworten (ChatGPT, Perplexity, Claude, Gemini)
+# sichtbar/zitierbar ist. Hinweis: CDN-Bot-Defaults (z. B. Cloudflare) prüfen.
+
 User-agent: *
 Allow: /
+
+# KI-Such-/Retrieval-Crawler explizit zulassen
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.aurelio-restaurant.de/sitemap.xml

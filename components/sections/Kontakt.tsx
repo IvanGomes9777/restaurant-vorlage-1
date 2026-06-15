@@ -59,6 +59,7 @@ const NAV = [
   { label: "Küche", href: "#kueche" },
   { label: "Menü", href: "#menue" },
   { label: "Reservierung", href: "#reservierung" },
+  { label: "Fragen", href: "#fragen" },
 ];
 
 const LEGAL = [
@@ -95,7 +96,7 @@ export function Kontakt() {
           <p className="mb-7 font-body text-[0.7rem] uppercase tracking-[0.5em] text-[var(--color-gold)]">
             — Events & Private Dining —
           </p>
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-medium leading-snug text-[var(--color-cream)] sm:text-5xl">
+          <h2 className="t-h2 mx-auto max-w-3xl font-display font-medium leading-snug text-[var(--color-cream)]">
             Ihr besonderer Anlass, perfekt inszeniert.
           </h2>
           <p className="mx-auto mt-6 max-w-xl font-serif text-lg italic text-[var(--color-cream)]/70">

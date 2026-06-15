@@ -1,0 +1,22 @@
+# AURELIO
+
+> AURELIO ist ein Fine-Dining-Restaurant in der Maximilianstraße 12, 80539 München. Seit 2014 steht es für saisonale, regionale Gourmetküche mit mehrgängigen Degustationsmenüs und Weinbegleitung. Geöffnet Dienstag bis Samstag ab 18:00 Uhr (Sonntag und Montag Ruhetag).
+
+## Hauptseite
+- [Restaurant AURELIO](https://www.aurelio-restaurant.de/): Fine-Dining-Restaurant in München – Küche, Speisekarte, Reservierung und Kontakt auf einer Seite.
+
+## Bereiche
+- [Küche & Philosophie](https://www.aurelio-restaurant.de/#kueche): Saisonale, regionale Produktküche mit kompromisslosem Handwerk.
+- [Speisekarte & Preise](https://www.aurelio-restaurant.de/#menue): Degustationsmenüs ab 145 €, Vorspeisen, Hauptgänge, vegetarisches Angebot, Weine.
+- [Tisch reservieren](https://www.aurelio-restaurant.de/#reservierung): Online-Reservierung mit Datum, Uhrzeit, Personenzahl und Anlass.
+- [Häufige Fragen (FAQ)](https://www.aurelio-restaurant.de/#fragen): Lage, Öffnungszeiten, Reservierung, Preise, vegetarisches Angebot, Events.
+- [Events & Private Dining](https://www.aurelio-restaurant.de/#events): Geburtstage, Jahrestage, Geschäftsessen und private Anlässe.
+- [Kontakt & Anfahrt](https://www.aurelio-restaurant.de/#kontakt): Adresse, Telefon, E-Mail und Karte.
+
+## Rechtliches
+- [Impressum](https://www.aurelio-restaurant.de/impressum)
+- [Datenschutz](https://www.aurelio-restaurant.de/datenschutz)
+- [Allergene & Zusatzstoffe](https://www.aurelio-restaurant.de/allergene)
+
+## Weiteres
+- [Sitemap](https://www.aurelio-restaurant.de/sitemap.xml)

@@ -50,7 +50,7 @@ export function Hero() {
     <section
       ref={ref}
       id="restaurant"
-      className="relative isolate h-[100svh] w-full overflow-hidden bg-[var(--color-ink)]"
+      className="relative isolate min-h-[100svh] w-full overflow-hidden bg-[var(--color-ink)]"
     >
       {/* === Hintergrund: Cinematic-Video-Layer (mit Parallax) === */}
       <motion.div style={{ y: videoY }} className="absolute inset-0 -z-20 h-[118%]">
@@ -76,7 +76,7 @@ export function Hero() {
       {/* === Inhalt === */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 py-28 text-center"
       >
         {/* Kicker */}
         <motion.p
@@ -93,7 +93,7 @@ export function Hero() {
           variants={wordContainer}
           initial="hidden"
           animate="show"
-          className="font-display text-5xl font-medium leading-[1.05] text-[var(--color-cream)] sm:text-7xl lg:text-8xl"
+          className="t-hero font-display font-medium leading-[1.05] text-[var(--color-cream)]"
         >
           {HEADLINE.map((w, i) => (
             <span key={i} className="mx-2 inline-block overflow-hidden align-bottom">
@@ -117,7 +117,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.7 }}
-          className="mb-11 max-w-xl font-serif text-lg font-light leading-relaxed text-[var(--color-cream)]/85 sm:text-2xl"
+          className="t-sub mb-11 max-w-xl font-serif font-light leading-relaxed text-[var(--color-cream)]/85"
         >
           Saisonale Gourmetküche im Herzen der Stadt – seit 2014.
         </motion.p>

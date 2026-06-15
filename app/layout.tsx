@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Cormorant_Garamond, Jost } from "next/font/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -24,9 +25,43 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "AURELIO – Kulinarik als Erlebnis",
-  description:
-    "Saisonale Gourmetküche im Herzen der Stadt – seit 2014. Reservieren Sie Ihren Tisch im AURELIO.",
+  metadataBase: new URL(SITE.url),
+  title: "Fine-Dining-Restaurant München – AURELIO",
+  description: SITE.description,
+  applicationName: SITE.name,
+  alternates: { canonical: "/" },
+  keywords: [
+    "Fine Dining München",
+    "Gourmetrestaurant München",
+    "Degustationsmenü",
+    "Restaurant Maximilianstraße",
+    "Tisch reservieren München",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: SITE.url,
+    siteName: SITE.name,
+    title: "Fine-Dining-Restaurant München – AURELIO",
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fine-Dining-Restaurant München – AURELIO",
+    description: SITE.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b0b0b",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

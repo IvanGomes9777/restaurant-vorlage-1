@@ -84,7 +84,7 @@ export function Kueche() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
-          className="font-display text-4xl font-medium leading-[1.1] text-[var(--color-cream)] sm:text-6xl"
+          className="t-h2 font-display font-medium leading-[1.1] text-[var(--color-cream)]"
         >
           {HEADLINE.map((w, i) => (
             <span key={i} className="mx-2 inline-block overflow-hidden align-bottom">
