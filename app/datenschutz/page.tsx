@@ -87,6 +87,14 @@ export default function Datenschutz() {
         ausdrücklichen Einwilligung gesetzt. Externe Dienste wie Google Maps
         werden – wie oben beschrieben – erst nach aktiver Zustimmung geladen.
       </p>
+      <p>
+        Beim ersten Besuch erscheint hierzu ein Cookie-Banner, über das Sie der
+        Verwendung von Analyse-Cookies zustimmen oder ausschließlich notwendige
+        Cookies zulassen können. Ihre Auswahl wird lokal in Ihrem Browser
+        gespeichert. Eine erteilte Einwilligung können Sie jederzeit mit Wirkung
+        für die Zukunft widerrufen, indem Sie die gespeicherten Website-Daten in
+        Ihrem Browser löschen; das Banner wird Ihnen dann erneut angezeigt.
+      </p>
 
       <h2>8. Beschwerderecht</h2>
       <p>
