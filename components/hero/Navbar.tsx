@@ -68,9 +68,9 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Menü öffnen"
+          aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
-          className="flex flex-col gap-1.5 lg:hidden"
+          className="-mr-2 flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
         >
           <span
             className={`h-px w-7 bg-[var(--color-cream)] transition-transform duration-300 ${

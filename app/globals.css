@@ -37,6 +37,28 @@ body {
   overflow-x: hidden;
 }
 
+/* ------------------------------------------------------------
+   Fluide Typografie (Responsive-Richtlinie): clamp() statt
+   abrupter Breakpoint-Sprünge. Stufenlos von ~320px bis 4K,
+   in rem (zugänglich/skalierbar bei Zoom).
+   ------------------------------------------------------------ */
+.t-hero {
+  font-size: clamp(2.5rem, 1.6rem + 4.8vw, 6rem);
+}
+.t-h2 {
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.75rem);
+}
+.t-sub {
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.5rem);
+}
+
+/* Medien skalieren fluid und verhindern Layout-Shift. */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Feines Korn/Vignette-Helfer für cinematic Tiefe */
 .cinematic-vignette {
   background: radial-gradient(

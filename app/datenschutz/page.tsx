@@ -4,12 +4,13 @@ import { LegalPage } from "@/components/legal/LegalPage";
 export const metadata: Metadata = {
   title: "Datenschutzerklärung · AURELIO",
   description: "Informationen zum Datenschutz gemäß Art. 13 DSGVO beim Restaurant AURELIO.",
+  alternates: { canonical: "/datenschutz" },
   robots: { index: false, follow: true },
 };
 
 export default function Datenschutz() {
   return (
-    <LegalPage title="Datenschutzerklärung" updated="Juni 2026">
+    <LegalPage title="Datenschutzerklärung" path="/datenschutz" updated="Juni 2026">
       <p className="text-xs text-[var(--color-cream)]/40">
         Hinweis: Demo-/Vorlagentext. Bitte vor Veröffentlichung an die
         tatsächlichen Verarbeitungen und Verantwortlichen anpassen und ggf.

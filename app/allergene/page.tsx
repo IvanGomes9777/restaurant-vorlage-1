@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Allergene & Zusatzstoffe · AURELIO",
   description:
     "Kennzeichnung der 14 Hauptallergene (LMIV) und Zusatzstoffe im Restaurant AURELIO.",
+  alternates: { canonical: "/allergene" },
   robots: { index: false, follow: true },
 };
 
@@ -42,7 +43,7 @@ const ZUSATZSTOFFE = [
 
 export default function Allergene() {
   return (
-    <LegalPage title="Allergene & Zusatzstoffe" updated="Juni 2026">
+    <LegalPage title="Allergene & Zusatzstoffe" path="/allergene" updated="Juni 2026">
       <p>
         Gemäß der Lebensmittelinformationsverordnung (LMIV – VO (EU) Nr.
         1169/2011) informieren wir Sie über kennzeichnungspflichtige Allergene
