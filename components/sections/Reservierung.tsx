@@ -85,7 +85,7 @@ export function Reservierung() {
           <p className="mb-7 font-body text-[0.7rem] uppercase tracking-[0.5em] text-[#a8842f]">
             — Reservierung —
           </p>
-          <h2 className="font-display text-4xl font-medium text-[#241f18] sm:text-6xl">
+          <h2 className="t-h2 font-display font-medium text-[#241f18]">
             Tisch reservieren
           </h2>
           <span className="mx-auto mt-9 block h-px w-40 bg-gradient-to-r from-transparent via-[#a8842f] to-transparent sm:w-56" />

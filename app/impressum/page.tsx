@@ -4,12 +4,13 @@ import { LegalPage } from "@/components/legal/LegalPage";
 export const metadata: Metadata = {
   title: "Impressum · AURELIO",
   description: "Impressum und Anbieterkennzeichnung des Restaurants AURELIO.",
+  alternates: { canonical: "/impressum" },
   robots: { index: false, follow: true },
 };
 
 export default function Impressum() {
   return (
-    <LegalPage title="Impressum" updated="Juni 2026">
+    <LegalPage title="Impressum" path="/impressum" updated="Juni 2026">
       <p className="text-xs text-[var(--color-cream)]/40">
         Hinweis: Dies ist eine Demo-/Vorlagenseite. Sämtliche Unternehmens- und
         Kontaktdaten sind Platzhalter und vor Veröffentlichung durch die echten

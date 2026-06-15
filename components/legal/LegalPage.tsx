@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { legalGraph } from "@/lib/schema";
 
 const LEGAL_NAV = [
   { label: "Startseite", href: "/" },
@@ -10,15 +12,19 @@ const LEGAL_NAV = [
 
 export function LegalPage({
   title,
+  path,
   updated,
   children,
 }: {
   title: string;
+  /** URL-Pfad der Seite (für Canonical-/Breadcrumb-Schema), z. B. "/impressum". */
+  path: string;
   updated?: string;
   children: ReactNode;
 }) {
   return (
     <main className="min-h-screen bg-[var(--color-ink)] text-[var(--color-cream)]">
+      <JsonLd data={legalGraph({ path, title })} />
       {/* Kopf */}
       <header className="border-b border-[var(--color-gold)]/15">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6">

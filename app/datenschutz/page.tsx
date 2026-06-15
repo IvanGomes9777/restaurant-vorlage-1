@@ -4,12 +4,13 @@ import { LegalPage } from "@/components/legal/LegalPage";
 export const metadata: Metadata = {
   title: "Datenschutzerklärung · AURELIO",
   description: "Informationen zum Datenschutz gemäß Art. 13 DSGVO beim Restaurant AURELIO.",
+  alternates: { canonical: "/datenschutz" },
   robots: { index: false, follow: true },
 };
 
 export default function Datenschutz() {
   return (
-    <LegalPage title="Datenschutzerklärung" updated="Juni 2026">
+    <LegalPage title="Datenschutzerklärung" path="/datenschutz" updated="Juni 2026">
       <p className="text-xs text-[var(--color-cream)]/40">
         Hinweis: Demo-/Vorlagentext. Bitte vor Veröffentlichung an die
         tatsächlichen Verarbeitungen und Verantwortlichen anpassen und ggf.
@@ -85,6 +86,14 @@ export default function Datenschutz() {
         notwendige (z. B. Tracking-/Marketing-)Cookies werden nur mit Ihrer
         ausdrücklichen Einwilligung gesetzt. Externe Dienste wie Google Maps
         werden – wie oben beschrieben – erst nach aktiver Zustimmung geladen.
+      </p>
+      <p>
+        Beim ersten Besuch erscheint hierzu ein Cookie-Banner, über das Sie der
+        Verwendung von Analyse-Cookies zustimmen oder ausschließlich notwendige
+        Cookies zulassen können. Ihre Auswahl wird lokal in Ihrem Browser
+        gespeichert. Eine erteilte Einwilligung können Sie jederzeit mit Wirkung
+        für die Zukunft widerrufen, indem Sie die gespeicherten Website-Daten in
+        Ihrem Browser löschen; das Banner wird Ihnen dann erneut angezeigt.
       </p>
 
       <h2>8. Beschwerderecht</h2>

@@ -328,7 +328,7 @@ export function Menu() {
         <p className="mb-8 font-body text-[0.7rem] uppercase tracking-[0.5em] text-[var(--color-gold)]">
           — Die Karte —
         </p>
-        <h2 className="font-display text-4xl font-medium text-[var(--color-cream)] sm:text-6xl">
+        <h2 className="t-h2 font-display font-medium text-[var(--color-cream)]">
           Speisekarte
         </h2>
         <span className="mx-auto my-9 block h-px w-40 bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent sm:w-56" />
